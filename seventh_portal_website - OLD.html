@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seventh Portal Internet Cafe | Bacoor Cavite</title>
+  <meta name="description" content="Seventh Portal Internet Cafe in Molino 3, Bacoor, Cavite. Printing, scanning, gaming, online assistance, and school project services." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #060812;
+      --panel: rgba(13, 18, 36, 0.82);
+      --panel-strong: rgba(18, 26, 52, 0.95);
+      --text: #eef3ff;
+      --muted: #9ba8c7;
+      --cyan: #00f5ff;
+      --blue: #3877ff;
+      --violet: #9f43ff;
+      --pink: #ff2fd6;
+      --green: #00ff9c;
+      --border: rgba(0, 245, 255, 0.22);
+      --shadow: 0 0 35px rgba(0, 245, 255, 0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: 'Poppins', sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(159, 67, 255, 0.28), transparent 34%),
+        radial-gradient(circle at 80% 18%, rgba(0, 245, 255, 0.18), transparent 28%),
+        radial-gradient(circle at 50% 100%, rgba(56, 119, 255, 0.2), transparent 35%),
+        var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,.9), rgba(0,0,0,.15));
+      z-index: 0;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      background: rgba(6, 8, 18, 0.74);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      border-radius: 15px;
+      background: linear-gradient(135deg, var(--cyan), var(--violet));
+      box-shadow: 0 0 24px rgba(0, 245, 255, .35);
+      color: #03040a;
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 800;
+      letter-spacing: -2px;
+    }
+
+    .brand-text strong {
+      display: block;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .brand-text span {
+      display: block;
+      color: var(--muted);
+      font-size: .78rem;
+    }
+
+    .links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    .links a:hover {
+      color: var(--cyan);
+    }
+
+    .nav-cta {
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--cyan), var(--violet));
+      color: #050713;
+      font-weight: 700;
+      box-shadow: 0 0 22px rgba(0,245,255,.25);
+    }
+
+    .hero {
+      padding: 92px 0 64px;
+      display: grid;
+      grid-template-columns: 1.08fr .92fr;
+      gap: 46px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 13px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--cyan);
+      background: rgba(0, 245, 255, 0.06);
+      font-size: .86rem;
+      margin-bottom: 18px;
+    }
+
+    .pulse {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 16px var(--green);
+    }
+
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(2.7rem, 7vw, 5.85rem);
+      line-height: .95;
+      text-transform: uppercase;
+      letter-spacing: -0.05em;
+      margin-bottom: 22px;
+    }
+
+    h1 span {
+      display: block;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(0, 245, 255, .8);
+      text-shadow: 0 0 32px rgba(0, 245, 255, .28);
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.08rem;
+      line-height: 1.8;
+      max-width: 650px;
+      margin-bottom: 28px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 13px 20px;
+      border-radius: 15px;
+      border: 1px solid rgba(255,255,255,.12);
+      font-weight: 700;
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--cyan), var(--blue) 52%, var(--violet));
+      color: #03040a;
+      box-shadow: var(--shadow);
+      border: 0;
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,.05);
+      color: var(--text);
+    }
+
+    .hero-card {
+      position: relative;
+      min-height: 460px;
+      border: 1px solid var(--border);
+      border-radius: 34px;
+      background:
+        linear-gradient(145deg, rgba(0,245,255,.12), transparent 42%),
+        linear-gradient(315deg, rgba(159,67,255,.18), transparent 45%),
+        var(--panel);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      padding: 28px;
+    }
+
+    .hero-card::before {
+      content: '';
+      position: absolute;
+      inset: 18px;
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 26px;
+      pointer-events: none;
+    }
+
+    .portal-ring {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      margin: 42px auto 28px;
+      position: relative;
+      background: conic-gradient(from 80deg, var(--cyan), var(--violet), var(--pink), var(--blue), var(--cyan));
+      box-shadow: 0 0 55px rgba(0,245,255,.35), inset 0 0 40px rgba(0,0,0,.5);
+      animation: spin 8s linear infinite;
+    }
+
+    .portal-ring::after {
+      content: '7P';
+      position: absolute;
+      inset: 25px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #070a16;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 4.2rem;
+      font-weight: 800;
+      color: var(--text);
+      box-shadow: inset 0 0 35px rgba(0,245,255,.16);
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .status-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .status {
+      padding: 16px;
+      border-radius: 20px;
+      background: rgba(255,255,255,.055);
+      border: 1px solid rgba(255,255,255,.09);
+    }
+
+    .status b {
+      display: block;
+      color: var(--cyan);
+      font-family: 'Orbitron', sans-serif;
+      margin-bottom: 5px;
+    }
+
+    .status span {
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    section {
+      padding: 70px 0;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 28px;
+    }
+
+    .section-head h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(1.9rem, 4vw, 3.2rem);
+      text-transform: uppercase;
+      line-height: 1;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      max-width: 520px;
+      line-height: 1.7;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+    }
+
+    .service-card {
+      min-height: 190px;
+      padding: 22px;
+      border: 1px solid rgba(255,255,255,.09);
+      border-radius: 26px;
+      background: var(--panel);
+      position: relative;
+      overflow: hidden;
+      transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(0,245,255,.45);
+      box-shadow: var(--shadow);
+    }
+
+    .service-card::after {
+      content: '';
+      position: absolute;
+      width: 110px;
+      height: 110px;
+      right: -40px;
+      bottom: -42px;
+      border-radius: 50%;
+      background: rgba(0,245,255,.11);
+      filter: blur(1px);
+    }
+
+    .icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(0,245,255,.2), rgba(159,67,255,.18));
+      border: 1px solid rgba(0,245,255,.24);
+      font-size: 1.45rem;
+      margin-bottom: 18px;
+    }
+
+    .service-card h3 {
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: .9rem;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .panel {
+      border: 1px solid rgba(255,255,255,.09);
+      border-radius: 28px;
+      background: var(--panel);
+      padding: 28px;
+      box-shadow: 0 18px 55px rgba(0,0,0,.22);
+    }
+
+    .panel h3 {
+      font-family: 'Orbitron', sans-serif;
+      margin-bottom: 16px;
+      color: var(--cyan);
+    }
+
+    .panel p, .panel li {
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .feature-list {
+      display: grid;
+      gap: 13px;
+      margin-top: 18px;
+      list-style: none;
+    }
+
+    .feature-list li {
+      padding: 13px 14px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.045);
+      border: 1px solid rgba(255,255,255,.07);
+    }
+
+    .location-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .map-placeholder {
+      min-height: 320px;
+      border-radius: 26px;
+      border: 1px solid var(--border);
+      background:
+        linear-gradient(135deg, rgba(0,245,255,.13), rgba(159,67,255,.15)),
+        repeating-linear-gradient(45deg, rgba(255,255,255,.04) 0 1px, transparent 1px 18px),
+        #0b1022;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 22px;
+      overflow: hidden;
+    }
+
+    .map-placeholder strong {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.4rem;
+      color: var(--cyan);
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .contact-card {
+      display: grid;
+      gap: 16px;
+    }
+
+    .contact-item {
+      padding: 18px;
+      border-radius: 20px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.08);
+    }
+
+    .contact-item small {
+      display: block;
+      color: var(--cyan);
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .contact-item span {
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .cta {
+      text-align: center;
+      padding: 46px;
+      border-radius: 34px;
+      border: 1px solid var(--border);
+      background:
+        linear-gradient(135deg, rgba(0,245,255,.14), transparent 45%),
+        linear-gradient(315deg, rgba(255,47,214,.12), transparent 42%),
+        var(--panel-strong);
+      box-shadow: var(--shadow);
+    }
+
+    .cta h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(2rem, 5vw, 4rem);
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    .cta p {
+      color: var(--muted);
+      max-width: 700px;
+      margin: 0 auto 24px;
+      line-height: 1.75;
+    }
+
+    footer {
+      padding: 28px 0 42px;
+      color: var(--muted);
+      border-top: 1px solid rgba(255,255,255,.07);
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .mobile-menu {
+      display: none;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      color: var(--text);
+      border-radius: 12px;
+      padding: 9px 12px;
+      font-weight: 700;
+    }
+
+    @media (max-width: 980px) {
+      .hero, .about-grid, .location-box {
+        grid-template-columns: 1fr;
+      }
+
+      .services {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero-card {
+        min-height: auto;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .mobile-menu {
+        display: inline-flex;
+      }
+
+      .links {
+        position: absolute;
+        left: 16px;
+        right: 16px;
+        top: 78px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 12px;
+        border: 1px solid rgba(255,255,255,.1);
+        border-radius: 20px;
+        background: rgba(7, 10, 22, .97);
+      }
+
+      .links.open {
+        display: flex;
+      }
+
+      .links a {
+        padding: 13px;
+      }
+
+      .nav-cta {
+        text-align: center;
+      }
+
+      .hero {
+        padding-top: 56px;
+      }
+
+      .services, .status-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .section-head p {
+        margin-top: 14px;
+      }
+
+      .portal-ring {
+        width: 210px;
+        height: 210px;
+      }
+
+      .portal-ring::after {
+        font-size: 3.4rem;
+      }
+
+      .cta {
+        padding: 34px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="#home" class="brand" aria-label="Seventh Portal Internet Cafe home">
+        <div class="logo">7P</div>
+        <div class="brand-text">
+          <strong>Seventh Portal</strong>
+          <span>Internet Cafe</span>
+        </div>
+      </a>
+
+      <button class="mobile-menu" id="menuBtn" aria-label="Open menu">Menu</button>
+
+      <nav class="links" id="navLinks">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#location">Location</a>
+        <a href="https://www.facebook.com/seventhportal.net/" target="_blank" rel="noopener" class="nav-cta">Message Us</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home" class="container">
+    <section class="hero">
+      <div>
+        <div class="eyebrow"><span class="pulse"></span> Now serving Molino 3, Bacoor Cavite</div>
+        <h1>Enter the <span>Seventh Portal</span></h1>
+        <p>
+          Your neighborhood internet cafe for gaming, printing, scanning, school projects, and online assistance. Built for students, gamers, workers, and anyone who needs fast, reliable digital services.
+        </p>
+        <div class="actions">
+          <a class="btn btn-primary" href="https://www.facebook.com/seventhportal.net/" target="_blank" rel="noopener">Message on Facebook</a>
+          <a class="btn btn-secondary" href="#location">Find Our Shop</a>
+        </div>
+      </div>
+
+      <div class="hero-card" aria-label="Seventh Portal gaming portal artwork">
+        <div class="portal-ring"></div>
+        <div class="status-grid">
+          <div class="status"><b>Gaming</b><span>Play, compete, and enjoy.</span></div>
+          <div class="status"><b>Printing</b><span>Documents and school needs.</span></div>
+          <div class="status"><b>Scanning</b><span>Quick digital copies.</span></div>
+          <div class="status"><b>Assist</b><span>Online forms and projects.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="section-head">
+        <h2>Services</h2>
+        <p>Everything you need for school, work, gaming, and online tasks in one convenient internet cafe.</p>
+      </div>
+
+      <div class="services">
+        <article class="service-card">
+          <div class="icon">🖨️</div>
+          <h3>Printing</h3>
+          <p>Print documents, assignments, forms, resumes, and school requirements.</p>
+        </article>
+        <article class="service-card">
+          <div class="icon">📄</div>
+          <h3>Scanning</h3>
+          <p>Scan IDs, documents, forms, and important papers for digital use.</p>
+        </article>
+        <article class="service-card">
+          <div class="icon">🎮</div>
+          <h3>Gaming</h3>
+          <p>Enjoy a modern gaming cafe vibe for casual play and online games.</p>
+        </article>
+        <article class="service-card">
+          <div class="icon">🌐</div>
+          <h3>Online Assistance</h3>
+          <p>Get help with online forms, accounts, submissions, and digital tasks.</p>
+        </article>
+        <article class="service-card">
+          <div class="icon">📚</div>
+          <h3>School Projects</h3>
+          <p>Support for research, layouts, printing, and project-related computer work.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="about-grid">
+        <div class="panel">
+          <h3>Why Visit Us?</h3>
+          <p>
+            Seventh Portal Internet Cafe is designed as a reliable local tech stop for students, gamers, and neighbors around Camella Homes Springville and nearby areas.
+          </p>
+          <ul class="feature-list">
+            <li>Modern gaming-inspired atmosphere</li>
+            <li>Helpful assistance for online and school tasks</li>
+            <li>Convenient location in Molino 3, Bacoor</li>
+          </ul>
+        </div>
+
+        <div class="panel">
+          <h3>Perfect For</h3>
+          <p>
+            Students finishing projects, customers needing printed or scanned documents, gamers looking for a place to play, and anyone who needs quick help with online transactions.
+          </p>
+          <ul class="feature-list">
+            <li>Assignments, research, and project printing</li>
+            <li>Online registrations, applications, and forms</li>
+            <li>Everyday computer and internet access needs</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="location">
+      <div class="section-head">
+        <h2>Visit Us</h2>
+        <p>Drop by our shop or message us on Facebook for inquiries about services, availability, and assistance.</p>
+      </div>
+
+      <div class="location-box">
+        <div class="map-placeholder">
+          <div>
+            <strong>Seventh Portal Internet Cafe</strong>
+            <span>Blk 28 Lot 4-D Phase 3 West Lanzones St.<br>Camella Homes Springville, Molino 3,<br>Bacoor, Cavite</span>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-item">
+            <small>Address</small>
+            <span>Blk 28 Lot 4-D Phase 3 West Lanzones St. Camella Homes Springville Molino 3 Bacoor Cavite</span>
+          </div>
+          <div class="contact-item">
+            <small>Contact</small>
+            <span>Message us on Facebook or visit the shop for assistance.</span>
+          </div>
+          <div class="contact-item">
+            <small>Facebook</small>
+            <span><a href="https://www.facebook.com/seventhportal.net/" target="_blank" rel="noopener">facebook.com/seventhportal.net</a></span>
+          </div>
+          <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&query=Blk%2028%20Lot%204-D%20Phase%203%20West%20Lanzones%20St.%20Camella%20Homes%20Springville%20Molino%203%20Bacoor%20Cavite" target="_blank" rel="noopener">Open in Google Maps</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="cta">
+        <h2>Need help today?</h2>
+        <p>
+          Whether you need documents printed, papers scanned, online assistance, gaming, or help with school projects, Seventh Portal Internet Cafe is ready to help.
+        </p>
+        <div class="actions" style="justify-content: center;">
+          <a class="btn btn-primary" href="https://www.facebook.com/seventhportal.net/" target="_blank" rel="noopener">Chat With Us</a>
+          <a class="btn btn-secondary" href="#services">View Services</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Seventh Portal Internet Cafe. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    const year = document.getElementById('year');
+
+    year.textContent = new Date().getFullYear();
+
+    menuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+
+    navLinks.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+  </script>
+</body>
+</html>

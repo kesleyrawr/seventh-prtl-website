@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome to Seventh Prtl</title>
+  <meta name="description" content="Intro landing page for Seventh Prtl Internet Cafe." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --text: #f7f7f7;
+      --muted: #b9b9b9;
+      --lime: #b7ff1a;
+      --yellow: #ffd633;
+      --orange: #ff801d;
+      --red: #ff451d;
+      --line: rgba(255,255,255,0.10);
+      --glow: 0 0 35px rgba(183,255,26,0.28);
+      --warm-glow: 0 0 35px rgba(255,128,29,0.25);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { min-height: 100%; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 22% 16%, rgba(183,255,26,0.16), transparent 25%),
+        radial-gradient(circle at 82% 78%, rgba(255,69,29,0.16), transparent 30%),
+        linear-gradient(135deg, #131313 0%, #060606 56%, #111 100%);
+      overflow: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.13;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px),
+        repeating-linear-gradient(45deg, rgba(255,255,255,0.032) 0 2px, transparent 2px 16px);
+      background-size: 40px 40px, 40px 40px, auto;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,.25));
+      z-index: 0;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: -20%;
+      background: conic-gradient(from 120deg at 50% 50%, transparent, rgba(183,255,26,0.07), rgba(255,128,29,0.08), transparent 58%);
+      animation: slowSpin 18s linear infinite;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .intro-wrap {
+      min-height: 100vh;
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 390px;
+      align-items: center;
+      gap: 46px;
+      position: relative;
+      z-index: 2;
+      padding: 24px 0;
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 13px;
+      border-radius: 999px;
+      background: rgba(183,255,26,0.08);
+      border: 1px solid rgba(183,255,26,0.20);
+      color: var(--lime);
+      font-weight: 700;
+      margin-bottom: 14px;
+      font-size: 0.9rem;
+    }
+
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--lime);
+      box-shadow: 0 0 18px var(--lime);
+    }
+
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      text-transform: uppercase;
+      font-size: clamp(2.2rem, 6.4vw, 5.25rem);
+      line-height: 0.88;
+      letter-spacing: -0.055em;
+      margin-bottom: 16px;
+    }
+
+    h1 .brand-name {
+      display: block;
+      background: linear-gradient(90deg, var(--lime), var(--yellow), var(--orange), var(--red));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    h1 .outline {
+      display: block;
+      color: transparent;
+      -webkit-text-stroke: 1.4px rgba(255,255,255,0.72);
+      text-shadow: 0 0 28px rgba(183,255,26,0.18);
+    }
+
+    .intro-copy p {
+      color: var(--muted);
+      line-height: 1.72;
+      font-size: 0.98rem;
+      max-width: 640px;
+      margin-bottom: 18px;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .meta-pill {
+      padding: 8px 11px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+
+    .entry-panel {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      max-width: 620px;
+    }
+
+    .entry-card {
+      min-height: 122px;
+      padding: 16px;
+      border-radius: 20px;
+      background: rgba(18,18,18,0.82);
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.22);
+      transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .entry-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(183,255,26,0.32);
+      box-shadow: var(--glow);
+    }
+
+    .entry-card strong {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1rem;
+      color: var(--lime);
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .entry-card span {
+      color: var(--muted);
+      font-size: 0.84rem;
+      line-height: 1.45;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .entry-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      width: 100%;
+      min-height: 42px;
+      border-radius: 999px;
+      font-weight: 800;
+      color: #0a0a0a;
+      background: linear-gradient(90deg, var(--lime), var(--yellow), var(--orange));
+    }
+
+    .entry-btn.dark {
+      color: var(--text);
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .play {
+      width: 23px;
+      height: 23px;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.18);
+      position: relative;
+      flex: 0 0 auto;
+    }
+
+    .play::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 52%;
+      transform: translate(-50%, -50%);
+      width: 0;
+      height: 0;
+      border-top: 6px solid transparent;
+      border-bottom: 6px solid transparent;
+      border-left: 9px solid #111;
+    }
+
+    .entry-btn.dark .play::before {
+      border-left-color: var(--lime);
+    }
+
+    .quick-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 14px;
+      font-size: 0.86rem;
+    }
+
+    .quick-line a {
+      color: var(--muted);
+      border-bottom: 1px solid rgba(255,255,255,0.18);
+      padding-bottom: 3px;
+    }
+
+    .visual {
+      min-height: 430px;
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 32px;
+      background:
+        linear-gradient(145deg, rgba(183,255,26,0.08), transparent 42%),
+        linear-gradient(315deg, rgba(255,69,29,0.13), transparent 40%),
+        rgba(18,18,18,0.88);
+      box-shadow: 0 18px 60px rgba(0,0,0,0.42);
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+
+    .visual::before {
+      content: "";
+      position: absolute;
+      inset: 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 25px;
+      pointer-events: none;
+    }
+
+    .orbital-stage {
+      position: relative;
+      width: 285px;
+      height: 285px;
+      display: grid;
+      place-items: center;
+    }
+
+    .orbital-stage::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: conic-gradient(from 0deg, rgba(183,255,26,0) 0%, rgba(183,255,26,0.92) 18%, rgba(255,214,51,0.75) 34%, rgba(255,128,29,0.95) 55%, rgba(255,69,29,0.95) 75%, rgba(183,255,26,0) 100%);
+      animation: spin 7s linear infinite;
+      box-shadow: 0 0 45px rgba(183,255,26,0.18);
+    }
+
+    .orbital-stage::after {
+      content: "";
+      position: absolute;
+      width: 318px;
+      height: 318px;
+      border-radius: 50%;
+      border: 1px dashed rgba(255,255,255,0.14);
+      animation: spinReverse 14s linear infinite;
+    }
+
+    .orbit-dot, .orbit-dot.two {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 13px;
+      height: 13px;
+      margin: -6.5px;
+      border-radius: 50%;
+      background: var(--lime);
+      box-shadow: 0 0 18px var(--lime);
+      transform-origin: 0 0;
+      animation: orbit 6s linear infinite;
+    }
+
+    .orbit-dot.two {
+      width: 10px;
+      height: 10px;
+      margin: -5px;
+      background: var(--orange);
+      box-shadow: 0 0 18px var(--orange);
+      animation-duration: 9s;
+      animation-direction: reverse;
+    }
+
+    .logo-core {
+      width: 210px;
+      height: 210px;
+      border-radius: 50%;
+      background: #0c0c0c;
+      padding: 7px;
+      position: relative;
+      z-index: 3;
+      box-shadow: 0 0 0 9px rgba(255,255,255,0.03), inset 0 0 32px rgba(0,0,0,0.45), var(--warm-glow);
+    }
+
+    .logo-core img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .intro-footer {
+      position: fixed;
+      left: 50%;
+      bottom: 12px;
+      transform: translateX(-50%);
+      z-index: 3;
+      color: rgba(255,255,255,0.55);
+      font-size: 0.78rem;
+      text-align: center;
+      width: min(900px, calc(100% - 32px));
+    }
+
+
+    .member-card {
+      color: inherit;
+      font: inherit;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      display: none;
+      place-items: center;
+      background: rgba(0,0,0,0.72);
+      backdrop-filter: blur(10px);
+      padding: 18px;
+    }
+
+    .modal-backdrop.open {
+      display: grid;
+    }
+
+    .member-modal {
+      width: min(460px, 100%);
+      border-radius: 28px;
+      padding: 24px;
+      background:
+        linear-gradient(145deg, rgba(183,255,26,0.10), transparent 42%),
+        linear-gradient(315deg, rgba(255,69,29,0.12), transparent 40%),
+        rgba(17,17,17,0.98);
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 20px 70px rgba(0,0,0,0.52), var(--glow);
+      position: relative;
+    }
+
+    .member-modal h2 {
+      font-family: 'Orbitron', sans-serif;
+      text-transform: uppercase;
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+    }
+
+    .member-modal p {
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 0.94rem;
+      margin-bottom: 16px;
+    }
+
+    .code-input {
+      width: 100%;
+      min-height: 52px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.06);
+      color: var(--text);
+      padding: 0 15px;
+      font: inherit;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      outline: none;
+      margin-bottom: 12px;
+    }
+
+    .code-input:focus {
+      border-color: rgba(183,255,26,0.45);
+      box-shadow: var(--glow);
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+
+    .modal-btn {
+      min-height: 46px;
+      border: 0;
+      border-radius: 999px;
+      padding: 0 16px;
+      font: inherit;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .modal-btn.primary {
+      color: #0a0a0a;
+      background: linear-gradient(90deg, var(--lime), var(--yellow), var(--orange));
+      box-shadow: var(--glow);
+    }
+
+    .modal-btn.secondary {
+      color: var(--text);
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .code-error {
+      display: none;
+      color: #ff9b85;
+      font-size: 0.88rem;
+      line-height: 1.5;
+      margin-top: 4px;
+    }
+
+    .code-error.show {
+      display: block;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes spinReverse { to { transform: rotate(-360deg); } }
+    @keyframes slowSpin { to { transform: rotate(360deg); } }
+    @keyframes orbit {
+      from { transform: rotate(0deg) translateX(158px) rotate(0deg); }
+      to { transform: rotate(360deg) translateX(158px) rotate(-360deg); }
+    }
+
+    @media (max-width: 980px) {
+      body { overflow-y: auto; }
+      .intro-wrap {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding: 28px 0 70px;
+      }
+      .visual { min-height: 350px; }
+    }
+
+    @media (max-width: 620px) {
+      .entry-panel { grid-template-columns: 1fr; }
+      .visual { min-height: 320px; }
+      .orbital-stage { width: 245px; height: 245px; }
+      .orbital-stage::after { width: 275px; height: 275px; }
+      .logo-core { width: 184px; height: 184px; }
+      h1 { font-size: clamp(2rem, 13vw, 4rem); }
+      @keyframes orbit {
+        from { transform: rotate(0deg) translateX(137px) rotate(0deg); }
+        to { transform: rotate(360deg) translateX(137px) rotate(-360deg); }
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="intro-wrap">
+    <section class="intro-copy">
+      <div class="kicker"><span class="dot"></span> Welcome to Seventh Prtl</div>
+      <h1>
+        Hi! Welcome to
+        <span class="brand-name">Seventh Prtl</span>
+        <span class="outline">Internet Cafe</span>
+      </h1>
+      <p>
+        Your local hub for gaming, printing, scanning, online assistance,
+        school projects, QR payments, and digital services in Molino 3, Bacoor.
+      </p>
+
+      <div class="meta-row">
+        <span class="meta-pill">Gaming</span>
+        <span class="meta-pill">Printing</span>
+        <span class="meta-pill">School Projects</span>
+        <span class="meta-pill">Online Assistance</span>
+      </div>
+
+      <div class="entry-panel">
+        <a class="entry-card" href="main.html?entry=guest#dashboard">
+          <div>
+            <strong>Enter as Guest</strong>
+            <span>Browse services, rates, location, and QR codes.</span>
+          </div>
+          <div class="entry-btn">Guest Entry <span class="play" aria-hidden="true"></span></div>
+        </a>
+
+        <button class="entry-card member-card" type="button" id="memberEntryBtn">
+          <div>
+            <strong>Enter as Member</strong>
+            <span>Members need a unique code from Seventh Prtl to continue.</span>
+          </div>
+          <div class="entry-btn dark">Member Entry <span class="play" aria-hidden="true"></span></div>
+        </button>
+      </div>
+
+      <div class="quick-line">
+        <a href="https://www.facebook.com/PRINTseventhprtl" target="_blank" rel="noopener">Send files for printing</a>
+        <a href="https://m.me/j/AbYU3Db5YEjjc_RI/?send_source=gc%3Asend_in_messenger_c" target="_blank" rel="noopener">Join members group</a>
+      </div>
+    </section>
+
+    <section class="visual" aria-label="Seventh Prtl animated logo">
+      <div class="orbital-stage">
+        <span class="orbit-dot" aria-hidden="true"></span>
+        <span class="orbit-dot two" aria-hidden="true"></span>
+        <div class="logo-core">
+          <img src="logo.png" alt="Seventh Prtl logo">
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+  <div class="modal-backdrop" id="memberModal" aria-hidden="true">
+    <div class="member-modal" role="dialog" aria-modal="true" aria-labelledby="memberModalTitle">
+      <h2 id="memberModalTitle">Member Code</h2>
+      <p>Enter your unique Seventh Prtl member code to continue as a member.</p>
+      <input class="code-input" id="memberCodeInput" type="text" placeholder="SP-XXX-0000" autocomplete="off">
+      <div class="code-error" id="codeError">Invalid code. Please check the code given by Seventh Prtl.</div>
+      <div class="modal-actions">
+        <button class="modal-btn primary" type="button" id="submitMemberCode">Enter as Member</button>
+        <button class="modal-btn secondary" type="button" id="closeMemberModal">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="intro-footer">
+    © <span id="year"></span> Seventh Prtl • Choose Guest or Member to enter
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const memberCodes = {
+      "SP-JNC-8K2L": "John Noel Canlapan",
+      "SP-JJG-4M9Q": "Jan Joseph Guanlao",
+      "SP-BSG-7P3X": "Beulah Silka Guanlao",
+      "SP-KZG-2R8V": "Kesley Zie Guanlao",
+      "SP-DTS-6N5Y": "David Tyron Sarceno"
+    };
+
+    const modal = document.getElementById("memberModal");
+    const memberEntryBtn = document.getElementById("memberEntryBtn");
+    const closeMemberModal = document.getElementById("closeMemberModal");
+    const submitMemberCode = document.getElementById("submitMemberCode");
+    const memberCodeInput = document.getElementById("memberCodeInput");
+    const codeError = document.getElementById("codeError");
+
+    function openMemberModal() {
+      modal.classList.add("open");
+      modal.setAttribute("aria-hidden", "false");
+      codeError.classList.remove("show");
+      memberCodeInput.value = "";
+      setTimeout(() => memberCodeInput.focus(), 50);
+    }
+
+    function closeModal() {
+      modal.classList.remove("open");
+      modal.setAttribute("aria-hidden", "true");
+    }
+
+    function validateMemberCode() {
+      const code = memberCodeInput.value.trim().toUpperCase();
+      const memberName = memberCodes[code];
+
+      if (!memberName) {
+        codeError.classList.add("show");
+        memberCodeInput.focus();
+        return;
+      }
+
+      const url = "main.html?entry=member&member=" + encodeURIComponent(memberName) + "#dashboard";
+      window.location.href = url;
+    }
+
+    memberEntryBtn.addEventListener("click", openMemberModal);
+    closeMemberModal.addEventListener("click", closeModal);
+    submitMemberCode.addEventListener("click", validateMemberCode);
+
+    memberCodeInput.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") validateMemberCode();
+      if (event.key === "Escape") closeModal();
+    });
+
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) closeModal();
+    });
+  </script>
+</body>
+</html>
