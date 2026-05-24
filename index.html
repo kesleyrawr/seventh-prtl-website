@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Welcome to Seventh Prtl</title>
+  <title>Seventh Prtl | Internet Cafe</title>
   <meta name="description" content="Intro landing page for Seventh Prtl Internet Cafe." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,7 +31,7 @@
         radial-gradient(circle at 22% 16%, rgba(183,255,26,0.16), transparent 25%),
         radial-gradient(circle at 82% 78%, rgba(255,69,29,0.16), transparent 30%),
         linear-gradient(135deg, #131313 0%, #060606 56%, #111 100%);
-      overflow: hidden;
+      overflow-x: hidden;
     }
 
     body::before {
@@ -71,7 +71,7 @@
       gap: 46px;
       position: relative;
       z-index: 2;
-      padding: 24px 0;
+      padding: 24px 0 48px;
     }
 
     .kicker {
@@ -99,7 +99,7 @@
     h1 {
       font-family: 'Orbitron', sans-serif;
       text-transform: uppercase;
-      font-size: clamp(2.2rem, 6.4vw, 5.25rem);
+      font-size: clamp(2.25rem, 6.2vw, 5rem);
       line-height: 0.88;
       letter-spacing: -0.055em;
       margin-bottom: 16px;
@@ -127,33 +127,89 @@
       margin-bottom: 18px;
     }
 
-    .meta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 18px;
+
+    
+    .nowrap-phrase { white-space: nowrap; color: var(--lime); font-weight: 700; }
+
+    .printing-highlight {
+      max-width: 760px;
+      margin: 0 0 18px;
+      padding: 14px 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background:
+        linear-gradient(90deg, rgba(183,255,26,0.10), rgba(255,128,29,0.10), rgba(255,69,29,0.10)),
+        rgba(12,12,12,0.82);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+      color: rgba(255,255,255,0.92);
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.98rem;
+      font-weight: 600;
+      line-height: 1.45;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
-    .meta-pill {
-      padding: 8px 11px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: rgba(255,255,255,0.05);
-      color: var(--muted);
-      font-size: 0.84rem;
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      max-width: 670px;
+      margin-bottom: 16px;
+    }
+
+    .feature-box {
+      min-height: 76px;
+      padding: 13px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.18);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    .feature-box strong {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.82rem;
+      line-height: 1.2;
+    }
+
+    .feature-box span {
+      color: rgba(255,255,255,0.78);
+      font-size: 0.73rem;
+      line-height: 1.35;
+    }
+
+    .feature-one {
+      background: linear-gradient(135deg, rgba(183,255,26,0.22), rgba(50,50,50,0.55));
+    }
+
+    .feature-two {
+      background: linear-gradient(135deg, rgba(255,214,51,0.22), rgba(50,50,50,0.55));
+    }
+
+    .feature-three {
+      background: linear-gradient(135deg, rgba(255,128,29,0.22), rgba(50,50,50,0.55));
+    }
+
+    .feature-four {
+      background: linear-gradient(135deg, rgba(255,69,29,0.22), rgba(50,50,50,0.55));
     }
 
     .entry-panel {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 12px;
-      max-width: 620px;
+      max-width: 670px;
     }
 
     .entry-card {
-      min-height: 122px;
-      padding: 16px;
-      border-radius: 20px;
+      min-height: 108px;
+      padding: 14px;
+      border-radius: 22px;
       background: rgba(18,18,18,0.82);
       border: 1px solid rgba(255,255,255,0.10);
       box-shadow: 0 12px 32px rgba(0,0,0,0.22);
@@ -161,6 +217,8 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      color: inherit;
+      text-align: left;
     }
 
     .entry-card:hover {
@@ -171,31 +229,52 @@
 
     .entry-card strong {
       font-family: 'Orbitron', sans-serif;
-      font-size: 1rem;
+      font-size: 0.98rem;
       color: var(--lime);
       display: block;
-      margin-bottom: 5px;
+      margin-bottom: 4px;
     }
 
     .entry-card span {
       color: var(--muted);
-      font-size: 0.84rem;
-      line-height: 1.45;
+      font-size: 0.82rem;
+      line-height: 1.4;
       display: block;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .entry-btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 9px;
       width: 100%;
-      min-height: 42px;
+      min-height: 40px;
       border-radius: 999px;
       font-weight: 800;
       color: #0a0a0a;
       background: linear-gradient(90deg, var(--lime), var(--yellow), var(--orange));
+      position: relative;
+    }
+
+    .entry-btn::after {
+      content: "";
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.16);
+      margin-left: 10px;
+    }
+
+    .entry-btn::before {
+      content: "";
+      position: absolute;
+      right: calc(50% - 82px);
+      width: 0;
+      height: 0;
+      border-top: 6px solid transparent;
+      border-bottom: 6px solid transparent;
+      border-left: 9px solid #111;
+      z-index: 2;
     }
 
     .entry-btn.dark {
@@ -204,48 +283,17 @@
       border: 1px solid rgba(255,255,255,0.12);
     }
 
-    .play {
-      width: 23px;
-      height: 23px;
-      border-radius: 50%;
-      background: rgba(0,0,0,0.18);
-      position: relative;
-      flex: 0 0 auto;
-    }
-
-    .play::before {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 52%;
-      transform: translate(-50%, -50%);
-      width: 0;
-      height: 0;
-      border-top: 6px solid transparent;
-      border-bottom: 6px solid transparent;
-      border-left: 9px solid #111;
-    }
-
-    .entry-btn.dark .play::before {
+    .entry-btn.dark::before {
       border-left-color: var(--lime);
     }
 
-    .quick-line {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 14px;
-      font-size: 0.86rem;
-    }
-
-    .quick-line a {
-      color: var(--muted);
-      border-bottom: 1px solid rgba(255,255,255,0.18);
-      padding-bottom: 3px;
+    .member-card {
+      cursor: pointer;
+      font: inherit;
     }
 
     .visual {
-      min-height: 430px;
+      min-height: 520px;
       border: 1px solid rgba(255,255,255,0.09);
       border-radius: 32px;
       background:
@@ -256,7 +304,8 @@
       position: relative;
       overflow: hidden;
       display: grid;
-      place-items: center;
+      align-content: center;
+      gap: 20px;
       padding: 24px;
     }
 
@@ -275,6 +324,7 @@
       height: 285px;
       display: grid;
       place-items: center;
+      margin: 0 auto;
     }
 
     .orbital-stage::before {
@@ -340,24 +390,80 @@
       border-radius: 50%;
     }
 
-    .intro-footer {
-      position: fixed;
-      left: 50%;
-      bottom: 12px;
-      transform: translateX(-50%);
-      z-index: 3;
-      color: rgba(255,255,255,0.55);
-      font-size: 0.78rem;
-      text-align: center;
-      width: min(900px, calc(100% - 32px));
+    .carousel {
+      width: 100%;
+      position: relative;
+      z-index: 5;
+      overflow: hidden;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.045);
+      aspect-ratio: 5 / 3;
+      min-height: 210px;
     }
 
+    .carousel-track {
+      display: flex;
+    }
 
-    .member-card {
-      color: inherit;
-      font: inherit;
-      text-align: left;
-      cursor: pointer;
+    .photo-track {
+      width: 1000%;
+      height: 100%;
+      animation: carouselMove 42s infinite;
+    }
+
+    .photo-slide {
+      width: 10%;
+      height: 100%;
+      min-height: 210px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .photo-slide img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .photo-slide::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.05) 5%, rgba(0,0,0,0.70) 100%);
+      pointer-events: none;
+    }
+
+    .slide-caption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 2;
+      padding: 14px 14px 12px;
+    }
+
+    .slide-caption strong {
+      font-family: 'Orbitron', sans-serif;
+      color: var(--lime);
+      font-size: 0.92rem;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .slide-caption span {
+      color: var(--text);
+      font-size: 0.8rem;
+      line-height: 1.4;
+    }
+
+    .carousel-note {
+      color: rgba(255,255,255,0.55);
+      font-size: 0.76rem;
+      text-align: center;
+      position: relative;
+      z-index: 5;
     }
 
     .modal-backdrop {
@@ -464,12 +570,38 @@
       display: block;
     }
 
+    .intro-footer {
+      position: fixed;
+      left: 50%;
+      bottom: 12px;
+      transform: translateX(-50%);
+      z-index: 3;
+      color: rgba(255,255,255,0.55);
+      font-size: 0.78rem;
+      text-align: center;
+      width: min(900px, calc(100% - 32px));
+    }
+
     @keyframes spin { to { transform: rotate(360deg); } }
     @keyframes spinReverse { to { transform: rotate(-360deg); } }
     @keyframes slowSpin { to { transform: rotate(360deg); } }
     @keyframes orbit {
       from { transform: rotate(0deg) translateX(158px) rotate(0deg); }
       to { transform: rotate(360deg) translateX(158px) rotate(-360deg); }
+    }
+
+    @keyframes carouselMove {
+      0%, 8% { transform: translateX(0); }
+      10%, 18% { transform: translateX(-10%); }
+      20%, 28% { transform: translateX(-20%); }
+      30%, 38% { transform: translateX(-30%); }
+      40%, 48% { transform: translateX(-40%); }
+      50%, 58% { transform: translateX(-50%); }
+      60%, 68% { transform: translateX(-60%); }
+      70%, 78% { transform: translateX(-70%); }
+      80%, 88% { transform: translateX(-80%); }
+      90%, 98% { transform: translateX(-90%); }
+      100% { transform: translateX(0); }
     }
 
     @media (max-width: 980px) {
@@ -479,16 +611,18 @@
         min-height: auto;
         padding: 28px 0 70px;
       }
-      .visual { min-height: 350px; }
+      .visual { min-height: auto; }
     }
 
     @media (max-width: 620px) {
+      .feature-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .entry-panel { grid-template-columns: 1fr; }
-      .visual { min-height: 320px; }
+      .visual { min-height: auto; }
       .orbital-stage { width: 245px; height: 245px; }
       .orbital-stage::after { width: 275px; height: 275px; }
       .logo-core { width: 184px; height: 184px; }
       h1 { font-size: clamp(2rem, 13vw, 4rem); }
+      .intro-footer { position: static; transform: none; margin: -48px auto 18px; }
       @keyframes orbit {
         from { transform: rotate(0deg) translateX(137px) rotate(0deg); }
         to { transform: rotate(360deg) translateX(137px) rotate(-360deg); }
@@ -499,22 +633,26 @@
 <body>
   <main class="intro-wrap">
     <section class="intro-copy">
-      <div class="kicker"><span class="dot"></span> Welcome to Seventh Prtl</div>
+      <div class="kicker"><span class="dot"></span> Hi! Welcome to Seventh Prtl</div>
       <h1>
-        Hi! Welcome to
+        Enter the
         <span class="brand-name">Seventh Prtl</span>
         <span class="outline">Internet Cafe</span>
       </h1>
       <p>
-        Your local hub for gaming, printing, scanning, online assistance,
-        school projects, QR payments, and digital services in Molino 3, Bacoor.
+        Your neighborhood internet cafe in Camella Homes Springville, Molino 3, Bacoor, Cavite.
+        For inquiries, printing files, and member updates, choose an option below.
       </p>
 
-      <div class="meta-row">
-        <span class="meta-pill">Gaming</span>
-        <span class="meta-pill">Printing</span>
-        <span class="meta-pill">School Projects</span>
-        <span class="meta-pill">Online Assistance</span>
+      <div class="printing-highlight">
+        We’re your go-to printing shop here in Camella Springville — <span class="nowrap-phrase">fast, affordable, and reliable</span>.
+      </div>
+
+      <div class="feature-grid" aria-label="Services overview">
+        <div class="feature-box feature-one"><strong>Gaming</strong><span>Modern internet cafe experience</span></div>
+        <div class="feature-box feature-two"><strong>Printing</strong><span>Quick file printing and document support</span></div>
+        <div class="feature-box feature-three"><strong>School Projects</strong><span>Layouts, research, and project assistance</span></div>
+        <div class="feature-box feature-four"><strong>Online Assistance</strong><span>Forms, submissions, and digital services</span></div>
       </div>
 
       <div class="entry-panel">
@@ -523,25 +661,20 @@
             <strong>Enter as Guest</strong>
             <span>Browse services, rates, location, and QR codes.</span>
           </div>
-          <div class="entry-btn">Guest Entry <span class="play" aria-hidden="true"></span></div>
+          <div class="entry-btn">Guest Entry</div>
         </a>
 
         <button class="entry-card member-card" type="button" id="memberEntryBtn">
           <div>
             <strong>Enter as Member</strong>
-            <span>Members need a unique code from Seventh Prtl to continue.</span>
+            <span>Members need a unique code to continue.</span>
           </div>
-          <div class="entry-btn dark">Member Entry <span class="play" aria-hidden="true"></span></div>
+          <div class="entry-btn dark">Member Entry</div>
         </button>
-      </div>
-
-      <div class="quick-line">
-        <a href="https://www.facebook.com/PRINTseventhprtl" target="_blank" rel="noopener">Send files for printing</a>
-        <a href="https://m.me/j/AbYU3Db5YEjjc_RI/?send_source=gc%3Asend_in_messenger_c" target="_blank" rel="noopener">Join members group</a>
       </div>
     </section>
 
-    <section class="visual" aria-label="Seventh Prtl animated logo">
+    <section class="visual" aria-label="Seventh Prtl animated logo and carousel">
       <div class="orbital-stage">
         <span class="orbit-dot" aria-hidden="true"></span>
         <span class="orbit-dot two" aria-hidden="true"></span>
@@ -549,9 +682,24 @@
           <img src="logo.png" alt="Seventh Prtl logo">
         </div>
       </div>
+
+      <div class="carousel" aria-label="SP Trips photo carousel">
+        <div class="carousel-track photo-track">
+          <div class="photo-slide"><img src="sp-trip-1.jpg" alt="SP Trips photo 1"><div class="slide-caption"><strong>SP Trips</strong><span>Team memories and fun moments together.</span></div></div>
+          <div class="photo-slide"><img src="sp-trip-2.jpg" alt="SP Trips photo 2"><div class="slide-caption"><strong>Cafe Team</strong><span>Seventh Prtl moments with the team.</span></div></div>
+          <div class="photo-slide"><img src="sp-trip-3.jpg" alt="SP Trips photo 3"><div class="slide-caption"><strong>Community</strong><span>Building memories beyond the shop.</span></div></div>
+          <div class="photo-slide"><img src="sp-trip-4.jpg" alt="SP Trips photo 4"><div class="slide-caption"><strong>Store Life</strong><span>Scenes from the SP cafe and hangouts.</span></div></div>
+          <div class="photo-slide"><img src="sp-trip-5.jpg" alt="SP Trips photo 5"><div class="slide-caption"><strong>SP Trips</strong><span>Shared meals and bonding moments.</span></div></div>
+          <div class="photo-slide"><img src="sp-trip-6.jpg" alt="SP Trips photo 6"><div class="slide-caption"><strong>Outdoor Fun</strong><span>Adventure moments from SP trips.</span></div></div>
+          <div class="photo-slide"><img src="sp-trip-7.jpg" alt="SP Trips photo 7"><div class="slide-caption"><strong>Nature Vibes</strong><span>Relaxing and enjoying the trip together.</span></div></div>
+          <div class="photo-slide"><img src="sp-trip-8.jpg" alt="SP Trips photo 8"><div class="slide-caption"><strong>Group Bonding</strong><span>Memories with the SP family.</span></div></div>
+          <div class="photo-slide"><img src="sp-trip-9.jpg" alt="SP Trips photo 9"><div class="slide-caption"><strong>Water Trip</strong><span>Fun group moments outdoors.</span></div></div>
+          <div class="photo-slide"><img src="sp-trip-10.jpg" alt="SP Trips photo 10"><div class="slide-caption"><strong>SP Shirts</strong><span>Seventh Prtl identity and team spirit.</span></div></div>
+        </div>
+      </div>
+      <div class="carousel-note">SP Trips highlights</div>
     </section>
   </main>
-
 
   <div class="modal-backdrop" id="memberModal" aria-hidden="true">
     <div class="member-modal" role="dialog" aria-modal="true" aria-labelledby="memberModalTitle">
@@ -567,7 +715,7 @@
   </div>
 
   <div class="intro-footer">
-    © <span id="year"></span> Seventh Prtl • Choose Guest or Member to enter
+    © <span id="year"></span> Seventh Prtl • Follow us on Facebook for updates
   </div>
 
   <script>
