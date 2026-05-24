@@ -98,7 +98,7 @@
     .brand {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
     }
 
     .brand-badge {
@@ -137,7 +137,7 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 10px;
       color: var(--muted);
       font-size: 0.92rem;
     }
@@ -173,58 +173,147 @@
       border: 1px solid rgba(183,255,26,0.20);
       color: var(--lime);
       font-family: 'Orbitron', sans-serif;
-      font-size: 0.78rem;
+      font-size: 0.74rem;
       text-transform: uppercase;
       white-space: nowrap;
       box-shadow: var(--glow);
     }
 
+    
     .trips-showcase {
       margin-bottom: 18px;
-      padding: 24px;
-      border-radius: 28px;
-      background: var(--panel);
+      padding: 26px;
+      border-radius: 30px;
+      background:
+        radial-gradient(circle at top left, rgba(255,187,59,0.10), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(255,104,39,0.12), transparent 30%),
+        linear-gradient(135deg, rgba(18,14,10,0.96), rgba(10,12,18,0.96));
       border: 1px solid rgba(255,255,255,0.08);
       box-shadow: var(--shadow);
       overflow: hidden;
+      position: relative;
     }
 
-    .centered-title {
+    .trips-showcase::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(rgba(255,255,255,0.015), rgba(255,255,255,0.015)),
+        repeating-linear-gradient(
+          0deg,
+          rgba(255,255,255,0.018) 0px,
+          rgba(255,255,255,0.018) 1px,
+          transparent 1px,
+          transparent 4px
+        );
+      opacity: 0.6;
+    }
+
+    .memory-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 auto 10px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255,219,120,0.10);
+      border: 1px solid rgba(255,219,120,0.22);
+      color: #ffd56c;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.74rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      position: relative;
+      z-index: 1;
+    }
+
+    .memory-kicker::before {
+      content: "✦";
+      color: var(--orange);
+    }
+
+    .memory-quote {
+      width: min(780px, 100%);
+      margin: 14px auto 0;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.045);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.88);
+      font-size: 0.92rem;
+      line-height: 1.65;
       text-align: center;
-      display: block !important;
+      position: relative;
+      z-index: 1;
     }
 
-    .centered-title p {
-      margin: 10px auto 0;
+    .memory-chips {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 14px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .memory-chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 36px;
+      padding: 0 13px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.86);
+      font-size: 0.82rem;
     }
 
     .trips-carousel {
       width: min(920px, 100%);
-      margin: 18px auto 0;
+      margin: 20px auto 0;
       overflow: hidden;
-      border-radius: 24px;
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.04);
+      border-radius: 26px;
+      border: 10px solid rgba(255,248,232,0.96);
+      background: #141414;
       aspect-ratio: 5 / 3;
-      box-shadow: 0 16px 38px rgba(0,0,0,0.28);
-    }
-
-    .trips-track {
-      display: flex;
-      width: 1500%;
-      height: 100%;
-      animation: tripsMove 62s infinite;
-    }
-
-    .trip-slide {
-      width: 6.6667%;
-      height: 100%;
+      box-shadow:
+        0 18px 40px rgba(0,0,0,0.34),
+        0 0 0 1px rgba(255,255,255,0.08);
       position: relative;
-      overflow: hidden;
+      z-index: 1;
+    }
+
+    .trips-carousel::before {
+      content: "Captured moments from Seventh Portal / Seventh Prtl";
+      position: absolute;
+      left: 18px;
+      top: 14px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(24,24,24,0.58);
+      color: rgba(255,255,255,0.88);
+      border: 1px solid rgba(255,255,255,0.12);
+      font-size: 0.74rem;
+      z-index: 3;
+      backdrop-filter: blur(6px);
+    }
+
+    .trip-slide::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(255,190,100,0.05), transparent 34%, rgba(0,0,0,0.10)),
+        radial-gradient(circle at top right, rgba(255,210,110,0.16), transparent 28%);
+      pointer-events: none;
+      z-index: 1;
     }
 
     .trip-slide::after {
-      content: "SP Trips";
+      content: "Seventh Portal Memories • Since 2000";
       position: absolute;
       left: 18px;
       bottom: 16px;
@@ -232,16 +321,190 @@
       border-radius: 999px;
       background: rgba(0,0,0,0.58);
       border: 1px solid rgba(255,255,255,0.14);
-      color: var(--lime);
+      color: #ffe49b;
       font-family: 'Orbitron', sans-serif;
-      font-size: 0.82rem;
+      font-size: 0.79rem;
+      z-index: 2;
     }
 
     .trip-slide img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      filter: saturate(0.98) contrast(1.03);
     }
+
+    .memory-title-line {
+      color: #ffd56c;
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(1.6rem, 4vw, 2.6rem);
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      text-align: center;
+      white-space: nowrap;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .trips-track {
+      display: flex;
+      width: 1500%;
+      height: 100%;
+      animation: tripsMove 60s infinite;
+      animation-timing-function: ease-in-out;
+    }
+
+    .trips-carousel:hover .trips-track {
+      animation-play-state: paused;
+    }
+
+    .trip-slide {
+      position: relative;
+      flex: 0 0 calc(100% / 15);
+      height: 100%;
+    }
+
+    .speech-wall {
+      position: relative;
+      min-height: 430px;
+      margin-top: 16px;
+      border-radius: 24px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at top left, rgba(183,255,26,0.06), transparent 26%),
+        radial-gradient(circle at bottom right, rgba(255,128,29,0.08), transparent 28%),
+        rgba(12,12,12,0.55);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .speech-bubble {
+      position: absolute;
+      width: min(270px, calc(100% - 24px));
+      padding: 14px 16px 16px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, rgba(36,36,36,0.94), rgba(22,22,22,0.94));
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: 0 18px 35px rgba(0,0,0,0.28);
+      opacity: 0;
+      transform: translateY(10px) scale(0.97);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+      pointer-events: none;
+    }
+
+    .speech-bubble.show {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .speech-bubble::after {
+      content: "";
+      position: absolute;
+      left: 20px;
+      bottom: -12px;
+      width: 22px;
+      height: 22px;
+      background: linear-gradient(135deg, rgba(36,36,36,0.94), rgba(22,22,22,0.94));
+      border-right: 1px solid rgba(255,255,255,0.10);
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+      transform: rotate(45deg);
+      border-bottom-right-radius: 4px;
+    }
+
+    .speech-bubble.right-tail::after {
+      left: auto;
+      right: 20px;
+    }
+
+    .speech-author {
+      color: #ffd56c;
+      font-weight: 800;
+      font-size: 0.86rem;
+      margin-bottom: 8px;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    .speech-text {
+      color: rgba(255,255,255,0.88);
+      line-height: 1.55;
+      font-size: 0.84rem;
+    }
+
+    .speech-meta {
+      margin-top: 10px;
+      color: rgba(255,255,255,0.48);
+      font-size: 0.75rem;
+    }
+
+    .floating-msg {
+      position: fixed !important;
+      right: 18px !important;
+      bottom: 18px !important;
+      z-index: 99999 !important;
+      display: inline-flex !important;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 56px;
+      padding: 0 20px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #00c853, #b7ff1a, #ffb000) !important;
+      color: #0b0b0b !important;
+      font-weight: 900;
+      font-size: 0.94rem;
+      text-decoration: none !important;
+      box-shadow: 0 18px 38px rgba(0,0,0,0.42), 0 0 0 1px rgba(255,255,255,0.18) !important;
+      border: 1px solid rgba(255,255,255,0.18) !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      pointer-events: auto !important;
+    }
+
+    .floating-msg:hover {
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 760px) {
+      .memory-title-line {
+        white-space: normal;
+      }
+
+      .speech-wall {
+        min-height: 1100px;
+      }
+
+      .speech-bubble {
+        width: min(280px, calc(100% - 20px));
+      }
+
+      .floating-msg {
+        right: 12px !important;
+        bottom: 12px !important;
+        min-height: 50px;
+        padding: 0 16px;
+        font-size: 0.82rem;
+      }
+    }
+
+
+    @media (max-width: 760px) {
+      .trips-carousel {
+        border-width: 8px;
+      }
+
+      .trips-carousel::before {
+        left: 12px;
+        top: 10px;
+        right: 12px;
+        font-size: 0.72rem;
+      }
+
+      .memory-quote {
+        font-size: 0.88rem;
+      }
+    }
+
 
     @keyframes tripsMove {
       0%, 5% { transform: translateX(0); }
@@ -259,17 +522,6 @@
       80%, 85% { transform: translateX(-80%); }
       86.66%, 91.66% { transform: translateX(-86.6667%); }
       93.33%, 98.33% { transform: translateX(-93.3334%); }
-      100% { transform: translateX(0); }
-    }
-      10%, 18% { transform: translateX(-10%); }
-      20%, 28% { transform: translateX(-20%); }
-      30%, 38% { transform: translateX(-30%); }
-      40%, 48% { transform: translateX(-40%); }
-      50%, 58% { transform: translateX(-50%); }
-      60%, 68% { transform: translateX(-60%); }
-      70%, 78% { transform: translateX(-70%); }
-      80%, 88% { transform: translateX(-80%); }
-      90%, 98% { transform: translateX(-90%); }
       100% { transform: translateX(0); }
     }
 
@@ -362,7 +614,7 @@
 
     .entry-mode {
       min-width: 220px;
-      padding: 18px;
+      padding: 15px;
       border-radius: 22px;
       background: rgba(255,255,255,0.04);
       border: 1px solid rgba(255,255,255,0.08);
@@ -391,7 +643,7 @@
     }
 
     .contact-us {
-      padding: 24px;
+      padding: 18px;
       border-radius: 28px;
       background: var(--panel);
       border: 1px solid rgba(255,255,255,0.08);
@@ -402,8 +654,8 @@
       display: flex;
       align-items: end;
       justify-content: space-between;
-      gap: 20px;
-      margin-bottom: 18px;
+      gap: 16px;
+      margin-bottom: 14px;
     }
 
     .section-title h2 {
@@ -422,17 +674,19 @@
 
     .contact-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      max-width: 980px;
+      margin: 0 auto;
     }
 
     .contact-card {
-      padding: 18px;
+      padding: 15px;
       border-radius: 20px;
       background: rgba(255,255,255,0.045);
       border: 1px solid rgba(255,255,255,0.08);
       transition: 0.2s ease;
-      min-height: 148px;
+      min-height: 136px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -457,14 +711,14 @@
     }
 
     .contact-card h3 {
-      font-size: 1rem;
+      font-size: 0.96rem;
       margin-bottom: 6px;
     }
 
     .contact-card p {
       color: var(--muted);
       line-height: 1.55;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       margin-bottom: 13px;
     }
 
@@ -485,7 +739,7 @@
     }
 
     .dashboard-card {
-      padding: 24px;
+      padding: 18px;
       border-radius: 30px;
       background:
         linear-gradient(180deg, rgba(8,8,12,0.82), rgba(8,8,12,0.90)),
@@ -497,14 +751,14 @@
 
     .tab-bar {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-      margin-bottom: 22px;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 14px;
     }
 
     .tab-btn {
-      min-height: 76px;
-      padding: 14px;
+      min-height: 64px;
+      padding: 11px 12px;
       border-radius: 18px;
       background: rgba(255,255,255,0.045);
       border: 1px solid rgba(255,255,255,0.08);
@@ -519,14 +773,14 @@
       display: block;
       color: var(--lime);
       font-family: 'Orbitron', sans-serif;
-      font-size: 0.9rem;
+      font-size: 0.84rem;
       margin-bottom: 5px;
     }
 
     .tab-btn span {
       color: var(--muted);
       line-height: 1.4;
-      font-size: 0.78rem;
+      font-size: 0.74rem;
     }
 
     .tab-btn:hover,
@@ -569,6 +823,16 @@
       font-size: 0.92rem;
     }
 
+    .history-panel-intro {
+      white-space: nowrap;
+    }
+
+    @media (max-width: 760px) {
+      .history-panel-intro {
+        white-space: normal;
+      }
+    }
+
     .grid-2,
     .grid-3,
     .services-grid,
@@ -606,12 +870,419 @@
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
+    .featured-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 8px 0 18px;
+    }
+
+    .featured-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 38px;
+      padding: 0 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.86);
+      font-size: 0.83rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    }
+
+    .featured-pill b {
+      color: var(--lime);
+      font-weight: 700;
+    }
+
+    .section-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 6px 0 14px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--yellow);
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.74rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .updated-note {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(183,255,26,0.09);
+      border: 1px solid rgba(183,255,26,0.18);
+      color: rgba(255,255,255,0.86);
+      font-size: 0.81rem;
+    }
+
+    .member-banner {
+      margin-top: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(183,255,26,0.12), rgba(255,128,29,0.09));
+      border: 1px solid rgba(183,255,26,0.22);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.14);
+      color: rgba(255,255,255,0.92);
+    }
+
+    .member-banner strong {
+      color: var(--lime);
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.84rem;
+    }
+
+    .member-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(0,0,0,0.24);
+      border: 1px solid rgba(255,255,255,0.10);
+      color: #fff;
+      font-size: 0.74rem;
+      white-space: nowrap;
+    }
+
+    .member-badge::before {
+      content: "✓";
+      width: 18px;
+      height: 18px;
+      display: inline-grid;
+      place-items: center;
+      border-radius: 50%;
+      background: linear-gradient(90deg, var(--lime), var(--yellow));
+      color: #0b0b0b;
+      font-weight: 900;
+      font-size: 0.7rem;
+    }
+
+    .step-list {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .step-list li {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 10px;
+      align-items: start;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      color: var(--muted);
+      line-height: 1.5;
+      font-size: 0.88rem;
+    }
+
+    .step-num {
+      width: 28px;
+      height: 28px;
+      display: inline-grid;
+      place-items: center;
+      border-radius: 50%;
+      background: linear-gradient(90deg, var(--lime), var(--orange));
+      color: #0b0b0b;
+      font-weight: 900;
+      font-size: 0.8rem;
+      flex-shrink: 0;
+    }
+
+    .floating-msg {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 9999;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 54px;
+      padding: 0 20px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--lime), var(--yellow), var(--orange));
+      color: #0b0b0b;
+      font-weight: 900;
+      font-size: 0.95rem;
+      box-shadow: 0 18px 38px rgba(0,0,0,0.34), 0 0 0 1px rgba(255,255,255,0.16);
+      border: 1px solid rgba(255,255,255,0.20);
+      text-decoration: none;
+    }
+
+    .floating-msg:hover {
+      transform: translateY(-2px) scale(1.01);
+      box-shadow: 0 20px 42px rgba(0,0,0,0.38), 0 0 24px rgba(183,255,26,0.18);
+    }
+
+    .floating-msg::before {
+      content: "💬";
+      font-size: 0.96rem;
+    }
+
+    .history-hero {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
+      margin-top: 16px;
+    }
+
+    .timeline-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 84px 1fr;
+      gap: 10px;
+      align-items: start;
+      padding: 11px 12px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.045);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .timeline-year {
+      display: inline-grid;
+      place-items: center;
+      min-height: 42px;
+      padding: 0 10px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--lime), var(--yellow), var(--orange));
+      color: #0b0b0b;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.74rem;
+      font-weight: 800;
+    }
+
+    .timeline-item strong {
+      display: block;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .history-photo-card img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.10);
+    }
+
+
+    .memory-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .memory-list {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .memory-list li {
+      padding: 11px 12px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.045);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 0.84rem;
+    }
+
+    .history-gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+
+    .comments-wall {
+      margin-top: 20px;
+    }
+
+    .comments-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .comment-card {
+      padding: 16px;
+      border-radius: 20px;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.025)),
+        rgba(12,12,12,0.82);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+    }
+
+    .comment-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .comment-author {
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.94rem;
+    }
+
+    .comment-meta {
+      color: rgba(255,255,255,0.55);
+      font-size: 0.74rem;
+      white-space: nowrap;
+    }
+
+    .comment-text {
+      color: rgba(255,255,255,0.86);
+      line-height: 1.68;
+      font-size: 0.84rem;
+    }
+
+    .comment-note {
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.045);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.78);
+      line-height: 1.6;
+      font-size: 0.88rem;
+    }
+
+    @media (max-width: 760px) {
+      .comments-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .history-gallery .card img {
+      width: 100%;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.10);
+      object-fit: cover;
+    }
+
+    .history-quote {
+      margin-top: 14px;
+      padding: 16px 18px;
+      border-left: 4px solid var(--orange);
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
+      color: rgba(255,255,255,0.88);
+      line-height: 1.7;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 760px) {
+      .memory-grid,
+      .history-gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .history-note {
+      margin-top: 14px;
+      padding: 0;
+      border-radius: 22px;
+      background: transparent;
+      border: none;
+      color: rgba(255,255,255,0.84);
+      line-height: 1.6;
+      font-size: 0.84rem;
+    }
+
+    .history-contribute-card {
+      position: relative;
+      overflow: hidden;
+      padding: 18px 18px 18px;
+      border-radius: 22px;
+      background:
+        radial-gradient(circle at top left, rgba(183,255,26,0.16), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(255,128,29,0.18), transparent 30%),
+        linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.09);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.18);
+    }
+
+    .history-contribute-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(90deg, rgba(183,255,26,0.06), transparent 32%, transparent 68%, rgba(255,128,29,0.07));
+    }
+
+    .history-contribute-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 34px;
+      padding: 0 14px;
+      border-radius: 999px;
+      background: rgba(10,10,10,0.42);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #dfff70;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 10px;
+    }
+
+    .history-contribute-title {
+      font-family: 'Orbitron', sans-serif;
+      color: #fff;
+      font-size: clamp(1.05rem, 2vw, 1.35rem);
+      line-height: 1.35;
+      margin-bottom: 8px;
+    }
+
+    .history-contribute-copy {
+      color: rgba(255,255,255,0.86);
+      line-height: 1.68;
+      font-size: 0.9rem;
+      max-width: 760px;
+    }
+
+    .history-contribute-copy strong {
+      color: #ffe07a;
+    }
+
+
+
 
     
     .service-nav {
       display: grid;
       grid-template-columns: repeat(6, minmax(0, 1fr));
-      gap: 12px;
+      gap: 10px;
       margin-bottom: 18px;
     }
 
@@ -752,6 +1423,18 @@
       .service-nav {
         grid-template-columns: 1fr;
       }
+
+      .floating-msg {
+        right: 14px;
+        bottom: 14px;
+        min-height: 50px;
+        padding: 0 16px;
+        font-size: 0.88rem;
+      }
+
+      .history-hero {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 1080px) {
@@ -817,7 +1500,7 @@
     .card li {
       color: var(--muted);
       line-height: 1.65;
-      font-size: 0.9rem;
+      font-size: 0.84rem;
       position: relative;
       z-index: 1;
     }
@@ -858,7 +1541,7 @@
     .price-list li {
       display: flex;
       justify-content: space-between;
-      gap: 12px;
+      gap: 10px;
       align-items: flex-start;
     }
 
@@ -1023,7 +1706,7 @@
       .contact-us,
       .dashboard-card,
       .trips-showcase {
-        padding: 18px;
+        padding: 15px;
         border-radius: 24px;
       }
 
@@ -1077,32 +1760,40 @@
             <p>
               Your neighborhood digital hub for gaming, printing, scanning, school projects, and online assistance in Camella Homes Springville, Molino 3, Bacoor, Cavite.
             </p>
+            <div class="member-banner" id="memberBanner" hidden>
+              <strong id="memberGreeting">Welcome back!</strong>
+              <span class="member-badge" id="memberBadge">Member Verified</span>
+            </div>
           </div>
         </div>
 
-        <section class="trips-showcase" aria-label="SP Trips gallery">
+        <section class="trips-showcase" aria-label="Seventh Portal Memories gallery">
           <div class="section-title centered-title">
-            <h2>SP Trips</h2>
-            <p>A glimpse of Seventh Prtl memories, team moments, and community trips.</p>
+            <h2 class="memory-title-line">Seventh Portal Memories</h2>
+            <p>A glimpse of Seventh Portal memories, team moments, community trips, and the people who became part of the story.</p>
+          </div>
+
+          <div class="memory-quote">
+            “Good memories. Better days. Friends forevs.” A nostalgic space for the moments, trips, and bond that helped shape Seventh Portal through the years.
           </div>
 
           <div class="trips-carousel">
             <div class="trips-track">
-              <div class="trip-slide"><img src="sp-trip-1.jpg" alt="SP Trips photo 1"></div>
-              <div class="trip-slide"><img src="sp-trip-2.jpg" alt="SP Trips photo 2"></div>
-              <div class="trip-slide"><img src="sp-trip-3.jpg" alt="SP Trips photo 3"></div>
-              <div class="trip-slide"><img src="sp-trip-4.jpg" alt="SP Trips photo 4"></div>
-              <div class="trip-slide"><img src="sp-trip-5.jpg" alt="SP Trips photo 5"></div>
-              <div class="trip-slide"><img src="sp-trip-6.jpg" alt="SP Trips photo 6"></div>
-              <div class="trip-slide"><img src="sp-trip-7.jpg" alt="SP Trips photo 7"></div>
-              <div class="trip-slide"><img src="sp-trip-8.jpg" alt="SP Trips photo 8"></div>
-              <div class="trip-slide"><img src="sp-trip-9.jpg" alt="SP Trips photo 9"></div>
-              <div class="trip-slide"><img src="sp-trip-10.jpg" alt="SP Trips photo 10"></div>
-              <div class="trip-slide"><img src="sp-trip-11.jpg" alt="SP Trips photo 11"></div>
-              <div class="trip-slide"><img src="sp-trip-12.jpg" alt="SP Trips photo 12"></div>
-              <div class="trip-slide"><img src="sp-trip-13.jpg" alt="SP Trips photo 13"></div>
-              <div class="trip-slide"><img src="sp-trip-14.jpg" alt="SP Trips photo 14"></div>
-              <div class="trip-slide"><img src="sp-trip-15.jpg" alt="SP Trips photo 15"></div>
+              <div class="trip-slide"><img src="sp-trip-1.jpg" alt="Seventh Portal Memories photo 1"></div>
+              <div class="trip-slide"><img src="sp-trip-2.jpg" alt="Seventh Portal Memories photo 2"></div>
+              <div class="trip-slide"><img src="sp-trip-3.jpg" alt="Seventh Portal Memories photo 3"></div>
+              <div class="trip-slide"><img src="sp-trip-4.jpg" alt="Seventh Portal Memories photo 4"></div>
+              <div class="trip-slide"><img src="sp-trip-5.jpg" alt="Seventh Portal Memories photo 5"></div>
+              <div class="trip-slide"><img src="sp-trip-6.jpg" alt="Seventh Portal Memories photo 6"></div>
+              <div class="trip-slide"><img src="sp-trip-7.jpg" alt="Seventh Portal Memories photo 7"></div>
+              <div class="trip-slide"><img src="sp-trip-8.jpg" alt="Seventh Portal Memories photo 8"></div>
+              <div class="trip-slide"><img src="sp-trip-9.jpg" alt="Seventh Portal Memories photo 9"></div>
+              <div class="trip-slide"><img src="sp-trip-10.jpg" alt="Seventh Portal Memories photo 10"></div>
+              <div class="trip-slide"><img src="sp-trip-11.jpg" alt="Seventh Portal Memories photo 11"></div>
+              <div class="trip-slide"><img src="sp-trip-12.jpg" alt="Seventh Portal Memories photo 12"></div>
+              <div class="trip-slide"><img src="sp-trip-13.jpg" alt="Seventh Portal Memories photo 13"></div>
+              <div class="trip-slide"><img src="sp-trip-14.jpg" alt="Seventh Portal Memories photo 14"></div>
+              <div class="trip-slide"><img src="sp-trip-15.jpg" alt="Seventh Portal Memories photo 15"></div>
             </div>
           </div>
         </section>
@@ -1113,25 +1804,29 @@
       <div class="container dashboard-card">
         <div class="section-title">
           <h2>Dashboard</h2>
-          <p>Open only the area you need. No side bar, no repeated intro cards — just organized tabs.</p>
+          
         </div>
 
         <div class="tab-bar">
-          <button class="tab-btn active" data-tab="services" type="button">
-            <strong>Services</strong>
-            <span>Shop offers</span>
+          <button class="tab-btn" data-tab="history" type="button">
+            <strong>History</strong>
+            <span>Since 2000</span>
           </button>
           <button class="tab-btn" data-tab="gaming" type="button">
             <strong>Gaming</strong>
             <span>Gaming rates</span>
           </button>
-          <button class="tab-btn" data-tab="location" type="button">
-            <strong>Location</strong>
-            <span>Address/maps</span>
+          <button class="tab-btn active" data-tab="services" type="button">
+            <strong>Services</strong>
+            <span>Shop offers</span>
           </button>
           <button class="tab-btn" data-tab="qr" type="button">
             <strong>QR Access</strong>
             <span>Payments/files</span>
+          </button>
+          <button class="tab-btn" data-tab="location" type="button">
+            <strong>Location</strong>
+            <span>Address/maps</span>
           </button>
         </div>
 
@@ -1140,6 +1835,15 @@
           <div class="panel-head">
             <div><h2>Services</h2></div>
             <p>Services and rates are now combined. Click a service card below to open its own information, prices, and sample photos.</p>
+          </div>
+
+          <div class="updated-note">⏱ Rates last updated: 2026</div>
+
+          <div class="featured-strip">
+            <div class="featured-pill"><b>Featured</b> Printing</div>
+            <div class="featured-pill"><b>Featured</b> Gaming</div>
+            <div class="featured-pill"><b>Featured</b> School Projects</div>
+            <div class="featured-pill"><b>Featured</b> Online Assistance</div>
           </div>
 
           <div class="service-nav">
@@ -1177,6 +1881,7 @@
 
           <div class="service-subpanel active"  data-service-panel="printing">
             <div class="service-info">For regular document printing, black-and-white and colored printing rates are shown here.</div>
+            <div class="section-kicker">Price List</div>
             <div class="grid-2">
               <article class="card">
                 <span class="tag">Printing</span>
@@ -1205,6 +1910,7 @@
 
           <div class="service-subpanel" data-service-panel="photo">
             <div class="service-info">This area is for photo printing rates and your uploaded sample prints.</div>
+            <div class="section-kicker">Price List</div>
             <div class="grid-2">
               <article class="card">
                 <span class="tag">Photo Printing</span>
@@ -1227,6 +1933,7 @@
               </article>
             </div>
 
+            <div class="section-kicker">Samples</div>
             <div class="panel-head" style="margin-top:24px;">
               <div><h2 style="font-size:clamp(1.15rem,3vw,1.7rem);">Photo Printing Samples</h2></div>
               <p>Uploaded sample outputs for photo printing.</p>
@@ -1245,6 +1952,7 @@
 
           <div class="service-subpanel" data-service-panel="idset">
             <div class="service-info">This section is for ID package outputs and ID set sample layouts.</div>
+            <div class="section-kicker">Price List</div>
             <div class="grid-2">
               <article class="card">
                 <span class="tag">ID Packages</span>
@@ -1273,6 +1981,7 @@
               </article>
             </div>
 
+            <div class="section-kicker">Samples</div>
             <div class="panel-head" style="margin-top:24px;">
               <div><h2 style="font-size:clamp(1.15rem,3vw,1.7rem);">ID Set Samples</h2></div>
               <p>Sample layouts for ID picture sets and package outputs.</p>
@@ -1289,6 +1998,7 @@
 
           <div class="service-subpanel" data-service-panel="other">
             <div class="service-info">Other store services like scanning, photocopying, typing, and PC services are placed here.</div>
+            <div class="section-kicker">Price List</div>
             <div class="grid-2">
               <article class="card">
                 <span class="tag">Other Services</span>
@@ -1314,6 +2024,7 @@
 
           <div class="service-subpanel" data-service-panel="laminate">
             <div class="service-info">Lamination and specialty paper pricing is grouped in this service area.</div>
+            <div class="section-kicker">Price List</div>
             <div class="grid-2">
               <article class="card">
                 <span class="tag">Laminate 125 Microns</span>
@@ -1363,6 +2074,7 @@
 
           <div class="service-subpanel" data-service-panel="servicesposter">
             <div class="service-info">A full overview of the store’s core services and highlights.</div>
+            <div class="section-kicker">Overview</div>
             <div class="grid-2">
               <article class="card image-card">
                 <span class="tag">Services Poster</span>
@@ -1390,7 +2102,9 @@
             <div><h2>Gaming Rates</h2></div>
             <p>Gaming has its own dedicated tab. The gaming room photo now stays as the background instead of taking up a separate card area.</p>
           </div>
+          <div class="updated-note">⏱ Rates last updated: 2026</div>
 
+          <div class="section-kicker">Price List</div>
           <div class="grid-2">
             <article class="card gaming-focus">
               <span class="tag">Starting Now</span>
@@ -1409,6 +2123,123 @@
               <h3>Official Gaming Poster</h3>
               <img src="gaming-rates-poster.png" alt="Seventh Prtl gaming rates poster">
             </article>
+          </div>
+        </div>
+
+
+        
+        <div class="tab-panel" data-panel="history">
+          <div class="panel-head">
+            <div><h2>SP All Throughout the Years</h2></div>
+            <p class="history-panel-intro">Celebrating the story of Seventh Prtl / Seventh Portal since 2000.</p>
+          </div>
+
+          <div class="updated-note">📍 Started in 2000 • Community computer shop journey</div>
+
+          <div class="history-hero">
+            <article class="card">
+              <span class="tag">History Timeline</span>
+              <h3>From Burnixxx.s.com to Seventh Portal to Seventh Prtl</h3>
+              <div class="timeline-list">
+                <div class="timeline-item">
+                  <div class="timeline-year">2000</div>
+                  <div>
+                    <strong>Started in the summer of year 2000</strong>
+                    <div>What began as <b>Burnixxx.s.com</b> later changed its name to <b>Seventh Portal</b> and became a familiar neighborhood computer shop.</div>
+                  </div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-year">15 Years</div>
+                  <div>
+                    <strong>Fifteen long years of existence</strong>
+                    <div>The shop became part of local life — filled with good memories, better days, firsts, heartbreaks, friendships, and shared everyday moments.</div>
+                  </div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-year">Today</div>
+                  <div>
+                    <strong>The legacy continues</strong>
+                    <div>Now known as <b>Seventh Prtl</b>, the business still carries the spirit of Seventh Portal while serving gaming, printing, scanning, school project, and online assistance needs.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="history-quote">
+                “Good memories. Better days. Friends forevs. Heartbreaks, heartaches, firsts. Gain plenty of friends. Diff. generations.”<br><br>
+                <b>Credits to:</b> Jan Joseph
+              </div>
+
+              <div class="actions" style="margin-top:14px;">
+                <a class="btn btn-primary" href="https://www.facebook.com/photo/?fbid=10204886865833399&set=a.2081992251385" target="_blank" rel="noopener">Open Facebook History Post</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <span class="tag">Memories</span>
+              <h3>What people remember</h3>
+              <div class="memory-grid">
+                <div>
+                  <div class="section-kicker">People & Community</div>
+                  <ul class="memory-list">
+                    <li>Friends, regulars, different generations, and plenty of people who grew up with the shop.</li>
+                    <li>Basketball players, dancers, bands, skaters, thrashers, and even the HOA crowd.</li>
+                    <li>A place tied to firsts, bonding, and memorable moments across many years.</li>
+                  </ul>
+                </div>
+                <div>
+                  <div class="section-kicker">Games & Internet Era</div>
+                  <ul class="memory-list">
+                    <li>Mirc, Multiply, and Yahoo Messenger days.</li>
+                    <li>CounterStrike, Warcraft, Diablo II, Starcraft, Red Alert, Ragnarok, Crossfire, SF, PW, Cabal, Dota 1 and Dota 2.</li>
+                    <li>Gangsters, Westlife, “taas/baba,” and more sesh memories.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="history-note">
+                <div class="history-contribute-card">
+                  <div class="history-contribute-kicker">Help Us Build Our History</div>
+                  <div class="history-contribute-title">Do you have old photos, milestones, or memorable comments connected to Seventh Portal / Seventh Prtl?</div>
+                  <div class="history-contribute-copy">
+                    Send them to us through Facebook Messenger so we can review them. <strong>Your memories can help this history section grow into a fuller timeline of Seventh Portal / Seventh Prtl through the years.</strong>
+                  </div>
+                  <div class="actions" style="margin-top:14px;">
+                    <a class="btn btn-primary" href="https://m.me/seventhportal.net" target="_blank" rel="noopener">Send Old Photos via DM</a>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="section-kicker" style="margin-top:22px;">History Photos</div>
+          <div class="history-gallery">
+            <article class="card history-photo-card">
+              <span class="tag">Earlier Exterior</span>
+              <h3>One of the earlier looks of SP</h3>
+              <img src="history-storefront.png" alt="Older Seventh Portal storefront photo">
+              <div class="info-strip">A history photo of the shop exterior, added as part of the “SP all throughout the years” section.</div>
+            </article>
+
+            <article class="card history-photo-card">
+              <span class="tag">Panoramic View</span>
+              <h3>Inside the shop through the years</h3>
+              <img src="history-panorama.png" alt="Older panoramic interior photo of Seventh Portal">
+              <div class="info-strip">Panoramic interior view from the history post you shared.</div>
+            </article>
+          </div>
+
+          <div class="comments-wall">
+            <div class="section-kicker" style="margin-top:22px;">Community Comments</div>
+            <div class="panel-head" style="margin-top:6px;">
+              <div><h2 style="font-size:clamp(1.3rem,3vw,2rem);">Wall of Memories</h2></div>
+              <p>Animated speech balloons from the Facebook memories you shared.</p>
+            </div>
+
+            <div class="speech-wall" id="speechWall"></div>
+
+            <div class="comment-note">
+              These comments now appear as floating speech balloons and reshuffle around the area to make the history section feel more alive and nostalgic.
+            </div>
           </div>
         </div>
 
@@ -1467,7 +2298,8 @@
           </div>
 
           
-          <div class="grid-2">
+          <div class="section-kicker">How to Send Files</div>
+          <div class="grid-3">
             <article class="card">
               <span class="tag">Where to Send Files</span>
               <ul class="price-list">
@@ -1492,6 +2324,17 @@
                 <li>Payment QR codes are still shown below for GCash and Maya.</li>
               </ul>
               <div class="info-strip">Store hours stay in the header, so the separate Hours dashboard tab has been removed.</div>
+            </article>
+
+            <article class="card">
+              <span class="tag">Quick Steps</span>
+              <h3>How to Send Files</h3>
+              <ul class="step-list">
+                <li><span class="step-num">1</span><span>Message our printing page first and tell us what service you need.</span></li>
+                <li><span class="step-num">2</span><span>Send your file together with the quantity, size, or instructions.</span></li>
+                <li><span class="step-num">3</span><span>Wait for our confirmation and total amount before payment.</span></li>
+                <li><span class="step-num">4</span><span>Pay via cash, GCash, or Maya, then claim your printed order.</span></li>
+              </ul>
             </article>
           </div>
 
@@ -1577,6 +2420,8 @@
     <div class="container">© <span id="year"></span> Seventh Prtl. All rights reserved.</div>
   </footer>
 
+  <a class="floating-msg" id="floatingMessengerBtn" href="https://www.facebook.com/PRINTseventhprtl" target="_blank" rel="noopener" aria-label="Message Printing Page">💬 Message Us</a>
+
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -1642,6 +2487,9 @@
 
     const headerMode = document.getElementById('headerMode');
     const liveDateTime = document.getElementById('liveDateTime');
+    const memberBanner = document.getElementById('memberBanner');
+    const memberGreeting = document.getElementById('memberGreeting');
+    const memberBadge = document.getElementById('memberBadge');
 
     function updateLiveDateTime() {
       const now = new Date();
@@ -1663,9 +2511,158 @@
 
     if (entryMode === 'member') {
       headerMode.textContent = memberName ? `Member: ${memberName}` : 'Member Mode';
+      memberBanner.hidden = false;
+      memberGreeting.textContent = memberName ? `Welcome back, ${memberName}` : 'Welcome back!';
+      memberBadge.textContent = 'Member Verified';
     } else {
       headerMode.textContent = 'Guest Mode';
+      memberBanner.hidden = false;
+      memberGreeting.textContent = 'Welcome back, Guest!';
+      memberBadge.textContent = 'Guest Mode';
     }
+
+
+    
+    const speechWall = document.getElementById('speechWall');
+    const memoryComments = [
+      { author: 'Jan Joseph Bellen Guanlao', meta: '10y', text: 'Galing galing ko.' },
+      { author: 'David Tyron Morato Sarceno', meta: '10y', text: 'the end is near hahaha' },
+      { author: 'Jarwin Maravilla', meta: '10y', text: '15 years 😢' },
+      { author: 'Norman Villalon', meta: '10y', text: 'Sagad burnix!!!' },
+      { author: 'Kel Seyren Perez', meta: '10y', text: 'paalam na ba sa burnix/seventh portal tomeka/shop ni dats? kulang-kulang 15 years na pala akong naglalaro jan? haha.' },
+      { author: 'Razak Bin Ozman', meta: '10y', text: 'Hahaha solid tong shop na to’ daming pinataob hehe.' },
+      { author: 'Luigi Lumba', meta: '10y', text: 'Sad. Wala ng 1st option ang mga estudyante sa umaga para mag titing haha.' },
+      { author: 'Wesley Brian Maravilla', meta: '10y', text: 'Nattandaan ko pa nung bata ako nagccounter na si ate bess.' },
+      { author: 'JB Envyme', meta: '9y', text: 'Naging parte din ng buhay ko yan burnix.' },
+      { author: 'JB Envyme', meta: '9y', text: 'Yun tipong nag titipid ka ng 15 pesos sa baon mo para lang maka pag laro.' },
+      { author: 'Norman Villalon', meta: '9y', text: 'Daming memories jan sa burnix!!! Tipong 9am ng umaga naguunahan na sa pc.' },
+      { author: 'Crisostomo Espejo Rizaldy', meta: '9y', text: 'Reunion tayo?' },
+      { author: 'Allan D. Ruiz', meta: '9y', text: 'heheheh game!!' },
+      { author: 'Lyn Baynosa', meta: '9y', text: 'haba habang sinasabuhay ang Counter Strike naka military attire pa.' },
+      { author: 'Jen-thore Vega', meta: '9y', text: 'Game na! ngangers pa Jhong.' },
+      { author: 'Jhong Canencia', meta: '9y', text: 'Counter na tayo! Haha.' }
+    ];
+
+    let speechWallTimer;
+
+    function createSpeechBubble() {
+      const bubble = document.createElement('div');
+      bubble.className = 'speech-bubble';
+      if (Math.random() > 0.5) bubble.classList.add('right-tail');
+      bubble.innerHTML = '<div class="speech-author"></div><div class="speech-text"></div><div class="speech-meta"></div>';
+      speechWall.appendChild(bubble);
+      return bubble;
+    }
+
+    function overlaps(rect, others, gap = 12) {
+      return others.some(other =>
+        !(rect.right + gap < other.left ||
+          rect.left - gap > other.right ||
+          rect.bottom + gap < other.top ||
+          rect.top - gap > other.bottom)
+      );
+    }
+
+    function randomItem(list) {
+      return list[Math.floor(Math.random() * list.length)];
+    }
+
+    function placeSpeechBubble(bubble, item, placedRects) {
+      const wallWidth = speechWall.clientWidth;
+      const wallHeight = speechWall.clientHeight;
+      const bubbleWidth = Math.min(window.innerWidth < 760 ? 240 : 260, wallWidth - 18);
+      bubble.style.width = bubbleWidth + 'px';
+      bubble.querySelector('.speech-author').textContent = item.author;
+      bubble.querySelector('.speech-text').textContent = '“' + item.text + '”';
+      bubble.querySelector('.speech-meta').textContent = item.meta;
+
+      const bubbleHeight = bubble.offsetHeight || 140;
+      const maxX = Math.max(8, wallWidth - bubbleWidth - 8);
+      const maxY = Math.max(8, wallHeight - bubbleHeight - 8);
+
+      let bestRect = null;
+      for (let i = 0; i < 80; i++) {
+        const left = Math.floor(Math.random() * maxX);
+        const top = Math.floor(Math.random() * maxY);
+        const rect = { left, top, right: left + bubbleWidth, bottom: top + bubbleHeight };
+        if (!overlaps(rect, placedRects)) {
+          bestRect = rect;
+          break;
+        }
+      }
+
+      if (!bestRect) {
+        const columns = window.innerWidth < 760 ? 1 : 2;
+        const colWidth = wallWidth / columns;
+        const index = placedRects.length;
+        const col = index % columns;
+        const row = Math.floor(index / columns);
+        const left = Math.min(maxX, Math.max(8, col * colWidth + 10));
+        const top = Math.min(maxY, 10 + row * (bubbleHeight + 14));
+        bestRect = { left, top, right: left + bubbleWidth, bottom: top + bubbleHeight };
+      }
+
+      placedRects.push(bestRect);
+      bubble.style.left = bestRect.left + 'px';
+      bubble.style.top = bestRect.top + 'px';
+      bubble.classList.remove('show');
+      requestAnimationFrame(() => bubble.classList.add('show'));
+    }
+
+    function renderSpeechWall() {
+      if (!speechWall) return;
+      speechWall.innerHTML = '';
+      const placedRects = [];
+      const bubbleCount = window.innerWidth < 760 ? 4 : 6;
+      const shuffled = [...memoryComments].sort(() => Math.random() - 0.5).slice(0, bubbleCount);
+      const bubbles = shuffled.map(item => {
+        const bubble = createSpeechBubble();
+        placeSpeechBubble(bubble, item, placedRects);
+        return bubble;
+      });
+
+      clearInterval(speechWallTimer);
+      speechWallTimer = setInterval(() => {
+        const bubble = randomItem(bubbles);
+        const item = randomItem(memoryComments);
+        bubble.classList.remove('show');
+        setTimeout(() => {
+          const idx = bubbles.indexOf(bubble);
+          const rects = [];
+          bubbles.forEach((b, i) => {
+            if (i === idx) return;
+            const left = parseFloat(b.style.left || 0);
+            const top = parseFloat(b.style.top || 0);
+            const width = b.offsetWidth || 260;
+            const height = b.offsetHeight || 140;
+            rects.push({ left, top, right: left + width, bottom: top + height });
+          });
+          placeSpeechBubble(bubble, item, rects);
+        }, 220);
+      }, 2500);
+    }
+
+    function ensureMessengerButton() {
+      let btn = document.getElementById('floatingMessengerBtn');
+      if (!btn) {
+        btn = document.createElement('a');
+        btn.id = 'floatingMessengerBtn';
+        btn.className = 'floating-msg';
+        btn.href = 'https://www.facebook.com/PRINTseventhprtl';
+        btn.target = '_blank';
+        btn.rel = 'noopener';
+        btn.textContent = '💬 Message Us';
+        document.body.appendChild(btn);
+      }
+    }
+
+    ensureMessengerButton();
+    renderSpeechWall();
+    window.addEventListener('resize', () => {
+      clearTimeout(window.__speechWallResizeTimer);
+      window.__speechWallResizeTimer = setTimeout(renderSpeechWall, 180);
+    });
+
   </script>
 </body>
 </html>
