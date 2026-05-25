@@ -674,9 +674,9 @@
 
     .contact-grid {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(5, minmax(0, 1fr));
       gap: 10px;
-      max-width: 980px;
+      max-width: 1220px;
       margin: 0 auto;
     }
 
@@ -877,6 +877,17 @@
       margin: 8px 0 18px;
     }
 
+    .dashboard-guide {
+      margin: 4px 0 14px;
+      color: rgba(255,255,255,0.74);
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+
+    .dashboard-guide strong {
+      color: #fff;
+    }
+
     .featured-pill {
       display: inline-flex;
       align-items: center;
@@ -889,6 +900,15 @@
       color: rgba(255,255,255,0.86);
       font-size: 0.83rem;
       box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+      cursor: pointer;
+      transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    .featured-pill:hover {
+      transform: translateY(-2px);
+      border-color: rgba(183,255,26,0.24);
+      background: rgba(255,255,255,0.07);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.18), 0 0 18px rgba(183,255,26,0.10);
     }
 
     .featured-pill b {
@@ -1449,6 +1469,10 @@
       .sample-grid.id-grid {
         grid-template-columns: 1fr;
       }
+
+      .helper-card-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
 
@@ -1840,10 +1864,10 @@
           <div class="updated-note">⏱ Rates last updated: 2026</div>
 
           <div class="featured-strip">
-            <div class="featured-pill"><b>Featured</b> Printing</div>
-            <div class="featured-pill"><b>Featured</b> Gaming</div>
-            <div class="featured-pill"><b>Featured</b> School Projects</div>
-            <div class="featured-pill"><b>Featured</b> Online Assistance</div>
+            <button class="featured-pill" type="button" data-featured-tab="services" data-featured-service="printing"><b>Featured</b> Rush Printing Available</button>
+            <button class="featured-pill" type="button" data-featured-tab="gaming"><b>Featured</b> 2 Hours Gaming — ₱25</button>
+            <button class="featured-pill" type="button" data-featured-tab="services" data-featured-service="other"><b>Featured</b> School Project Assistance</button>
+            <button class="featured-pill" type="button" data-featured-tab="qr"><b>Featured</b> Forms &amp; Digital Services</button>
           </div>
 
           <div class="service-nav">
@@ -1851,31 +1875,31 @@
               <span class="service-icon-badge">🖨️</span>
               <strong>Printing</strong>
               <span>Document and colored printing rates</span>
+              <em class="service-badge">Most Requested</em>
             </button>
             <button class="service-subbtn" type="button" data-service="photo">
               <span class="service-icon-badge">🖼️</span>
               <strong>Photo Printing</strong>
               <span>Photo print rates and sample outputs</span>
+              <em class="service-badge">Popular Prints</em>
             </button>
             <button class="service-subbtn" type="button" data-service="idset">
               <span class="service-icon-badge">🪪</span>
               <strong>ID Packages</strong>
               <span>ID set samples and package outputs</span>
+              <em class="service-badge">Student Essential</em>
             </button>
             <button class="service-subbtn" type="button" data-service="other">
               <span class="service-icon-badge">📄</span>
               <strong>Other Services</strong>
               <span>Scan, photocopy, typing, and more</span>
+              <em class="service-badge">School Help</em>
             </button>
             <button class="service-subbtn" type="button" data-service="laminate">
               <span class="service-icon-badge">✨</span>
               <strong>Laminate</strong>
               <span>Laminate and specialty paper rates</span>
-            </button>
-            <button class="service-subbtn" type="button" data-service="servicesposter">
-              <span class="service-icon-badge">🚀</span>
-              <strong>Overview</strong>
-              <span>Full services poster and highlights</span>
+              <em class="service-badge">Finishing Touch</em>
             </button>
           </div>
 
@@ -1899,6 +1923,7 @@
                   <li><span>Colored (Long / Folio) – Whole Paper</span><span>₱14.00</span></li>
                 </ul>
                 <div class="info-strip">Black/gray photo rates shown on the original card range from ₱7.00 to ₱14.00 depending on coverage and size.</div>
+                <div class="info-strip">For faster service, send your file with paper size, color/B&amp;W, number of copies, and preferred pickup time.</div>
               </article>
               <article class="card image-card">
                 <span class="tag">Rate Card</span>
@@ -2071,32 +2096,8 @@
               </article>
             </div>
           </div>
-
-          <div class="service-subpanel" data-service-panel="servicesposter">
-            <div class="service-info">A full overview of the store’s core services and highlights.</div>
-            <div class="section-kicker">Overview</div>
-            <div class="grid-2">
-              <article class="card image-card">
-                <span class="tag">Services Poster</span>
-                <h3>Available Services</h3>
-                <img src="services-poster.png" alt="Seventh Prtl services poster">
-              </article>
-              <article class="card">
-                <span class="tag">Highlights</span>
-                <h3>One-stop Computer Shop</h3>
-                <ul class="mini-list">
-                  <li>Photoprint and ID packages</li>
-                  <li>Photocopy, laminate, and scan</li>
-                  <li>Typing, reformat, and PC check up</li>
-                  <li>Printing and e-wallet services</li>
-                  <li>Airconditioned space</li>
-                </ul>
-              </article>
-            </div>
-          </div>
         </div>
 
-        
         <div class="tab-panel" data-panel="gaming">
           <div class="panel-head">
             <div><h2>Gaming Rates</h2></div>
@@ -2297,6 +2298,8 @@
             <p>Payment QR codes and file-sending options.</p>
           </div>
 
+          <div class="updated-note">⚠️ Please wait for confirmation before sending payment.</div>
+
           
           <div class="section-kicker">How to Send Files</div>
           <div class="grid-3">
@@ -2310,7 +2313,7 @@
                 <li><span>Viber</span><span>0956-082-9279</span></li>
               </ul>
               <div class="actions">
-                <a class="btn btn-primary" href="https://www.facebook.com/PRINTseventhprtl" target="_blank" rel="noopener">Message Printing Page</a>
+                <a class="btn btn-primary" href="https://m.me/1547351632000485" target="_blank" rel="noopener">Message Printing Page</a>
               </div>
             </article>
 
@@ -2362,6 +2365,18 @@
               <div class="info-strip">Maya number shown: 0917-156-4944</div>
             </article>
           </div>
+          <div class="helper-card-grid">
+            <article class="card">
+              <span class="tag">Other Services</span>
+              <h3>E-Wallet & Payment Services</h3>
+              <ul class="mini-list">
+                <li>GCash / Maya</li>
+                <li>Credit to Cash</li>
+                <li>Bills Payment</li>
+                <li>E-Loading / Game Pins</li>
+              </ul>
+            </article>
+          </div>
         </div>
       </div>
     </section>
@@ -2404,6 +2419,15 @@
 
             <article class="contact-card">
               <div>
+                <small>Email</small>
+                <h3>Send via Email</h3>
+                <p>Customers may also send files or contact us through email: spicbacoor@gmail.com</p>
+              </div>
+              <a href="mailto:spicbacoor@gmail.com">Send Email</a>
+            </article>
+
+            <article class="contact-card">
+              <div>
                 <small>Location</small>
                 <h3>Visit the Shop</h3>
                 <p>B28 L4D Phase 3 West Lanzones St., Camella Homes Springville.</p>
@@ -2417,10 +2441,13 @@
   </main>
 
   <footer>
-    <div class="container">© <span id="year"></span> Seventh Prtl. All rights reserved.</div>
+    <div class="container">
+      <div>© <span id="year"></span> Seventh Prtl. All rights reserved.</div>
+      <div class="footer-disclaimer">Rates may change without prior notice. Please message us to confirm availability, final pricing, and payment details.</div>
+    </div>
   </footer>
 
-  <a class="floating-msg" id="floatingMessengerBtn" href="https://www.facebook.com/PRINTseventhprtl" target="_blank" rel="noopener" aria-label="Message Printing Page">💬 Message Us</a>
+  <a class="floating-msg" id="floatingMessengerBtn" href="https://www.facebook.com/PRINTseventhprtl" target="_blank" rel="noopener" aria-label="Message Printing Page">Message Us</a>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
@@ -2446,6 +2473,26 @@
 
     tabButtons.forEach(btn => {
       btn.addEventListener('click', () => openTab(btn.dataset.tab));
+    });
+
+
+    const featuredPills = document.querySelectorAll('.featured-pill[data-featured-tab]');
+
+    featuredPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        const tab = pill.dataset.featuredTab;
+        const service = pill.dataset.featuredService;
+        if (tab) {
+          openTab(tab);
+          const dashboardSection = document.getElementById('dashboard');
+          if (dashboardSection) {
+            dashboardSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+        if (service) {
+          setTimeout(() => openService(service), 120);
+        }
+      });
     });
 
 
@@ -2648,10 +2695,10 @@
         btn = document.createElement('a');
         btn.id = 'floatingMessengerBtn';
         btn.className = 'floating-msg';
-        btn.href = 'https://www.facebook.com/PRINTseventhprtl';
+        btn.href = 'https://m.me/1547351632000485';
         btn.target = '_blank';
         btn.rel = 'noopener';
-        btn.textContent = '💬 Message Us';
+        btn.textContent = 'Message Us';
         document.body.appendChild(btn);
       }
     }
